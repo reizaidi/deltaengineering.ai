@@ -45,3 +45,6 @@ next-env.d.ts
 /playwright-report/
 /reports/lighthouse/*.json
 /reports/lighthouse/*.html
+
+# static preview build
+/.preview/
