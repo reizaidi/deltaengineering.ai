@@ -6,7 +6,7 @@ export function SiteFooter() {
   const year = new Date().getFullYear();
   return (
     <footer className="mt-32 px-3 pb-6 sm:px-5">
-      <div className="glass mx-auto max-w-6xl px-6 py-12 sm:px-10">
+      <div className="glass mx-auto max-w-shell px-6 py-12 sm:px-10">
         <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
             <Wordmark />

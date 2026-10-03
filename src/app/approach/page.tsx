@@ -38,12 +38,12 @@ export default function ApproachPage() {
         lead="The Delta Method keeps every AI engagement honest: agree the change, build the simplest system that can produce it, prove it, and keep proving it."
       />
 
-      <section aria-labelledby="stages-h" className="mx-auto mt-16 max-w-6xl px-5">
+      <section aria-labelledby="stages-h" className="mx-auto mt-16 max-w-shell px-5">
         <h2 id="stages-h" className="sr-only">Stages</h2>
         <DeltaMethod />
       </section>
 
-      <section aria-labelledby="gates-h" className="mx-auto mt-32 max-w-6xl px-5">
+      <section aria-labelledby="gates-h" className="mx-auto mt-32 max-w-shell px-5">
         <SectionHeading
           id="gates-h"
           eyebrow="Release gates"
@@ -71,14 +71,14 @@ export default function ApproachPage() {
         </div>
       </section>
 
-      <section aria-labelledby="tradeoff2-h" className="mx-auto mt-32 max-w-6xl px-5">
+      <section aria-labelledby="tradeoff2-h" className="mx-auto mt-32 max-w-shell px-5">
         <SectionHeading id="tradeoff2-h" eyebrow="Budgets" title="Quality, latency and cost are design inputs." />
         <Reveal className="mt-10">
           <TradeoffTriangle />
         </Reveal>
       </section>
 
-      <section aria-labelledby="principles2-h" className="mx-auto mt-32 max-w-6xl px-5">
+      <section aria-labelledby="principles2-h" className="mx-auto mt-32 max-w-shell px-5">
         <SectionHeading id="principles2-h" eyebrow="Principles" title="How we make decisions." />
         <ul className="mt-10 grid gap-4 sm:grid-cols-2">
           {principles.map((p) => (
@@ -92,7 +92,7 @@ export default function ApproachPage() {
         </ul>
       </section>
 
-      <section aria-labelledby="tools-h" className="mx-auto mt-32 max-w-6xl px-5">
+      <section aria-labelledby="tools-h" className="mx-auto mt-32 max-w-shell px-5">
         <SectionHeading
           id="tools-h"
           eyebrow="Toolbox"

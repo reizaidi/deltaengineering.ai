@@ -41,3 +41,12 @@ test("reduced motion: autoplay tour starts paused", async ({ browser }) => {
   await expect(page.getByRole("button", { name: "Play tour" })).toBeVisible();
   await ctx.close();
 });
+
+test("reduced motion: founder portrait does not float", async ({ browser }) => {
+  const ctx = await browser.newContext({ reducedMotion: "reduce" });
+  const page = await ctx.newPage();
+  await page.goto("/about");
+  const iterations = await page.locator(".float-bob").first().evaluate((el) => getComputedStyle(el).animationIterationCount);
+  expect(iterations).toBe("1");
+  await ctx.close();
+});

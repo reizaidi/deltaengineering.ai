@@ -2,7 +2,7 @@ import { ButtonLink } from "@/components/ui/Button";
 
 export function CtaBand() {
   return (
-    <section aria-labelledby="cta-h" className="mx-auto mt-32 max-w-6xl px-5">
+    <section aria-labelledby="cta-h" className="mx-auto mt-32 max-w-shell px-5">
       <div className="relative overflow-hidden rounded-[1.75rem] bg-delta-700 px-6 py-14 text-white sm:px-14 sm:py-16">
         <svg aria-hidden viewBox="0 0 400 352" className="absolute -right-16 -top-10 w-[26rem] opacity-[0.22]">
           <path d="M200 10 L390 340 L10 340 Z" fill="none" stroke="#c5a467" strokeWidth="1.5" />

@@ -23,7 +23,7 @@ export default function ServicesPage() {
         lead="Each service ends in working software or a decision you can act on, with the evidence that it meets the target we agreed."
       />
 
-      <div className="mx-auto mt-16 max-w-6xl space-y-6 px-5">
+      <div className="mx-auto mt-16 max-w-shell space-y-6 px-5">
         {services.map((s) => (
           <Reveal key={s.slug}>
             <GlassCard id={s.slug} className="group scroll-mt-28 p-6 sm:p-10">
@@ -60,7 +60,7 @@ export default function ServicesPage() {
         ))}
       </div>
 
-      <section aria-labelledby="models-h" className="mx-auto mt-32 max-w-6xl px-5">
+      <section aria-labelledby="models-h" className="mx-auto mt-32 max-w-shell px-5">
         <SectionHeading id="models-h" eyebrow="Ways to work together" title="Start small, or embed with your team." />
         <ul className="mt-10 grid gap-4 md:grid-cols-3">
           {engagementModels.map((m, i) => (

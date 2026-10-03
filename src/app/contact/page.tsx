@@ -23,7 +23,7 @@ export default function ContactPage() {
         title="Tell us the change you need."
         lead="Share as much or as little as you like. We will reply with questions or a suggested first step."
       />
-      <section className="mx-auto mt-14 grid max-w-6xl gap-10 px-5 lg:grid-cols-[1.4fr_0.6fr]">
+      <section className="mx-auto mt-14 grid max-w-shell gap-10 px-5 lg:grid-cols-[1.4fr_0.6fr]">
         <ContactForm email={site.email} />
         <aside aria-labelledby="next-h">
           <h2 id="next-h" className="eyebrow">What happens next</h2>

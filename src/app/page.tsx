@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <>
       {/* Hero: text is server-rendered and never animated in, so it can paint as LCP immediately. */}
-      <section className="mx-auto grid max-w-6xl items-center gap-12 px-5 pt-14 sm:pt-20 lg:grid-cols-[1.05fr_1fr] lg:gap-16 lg:pt-24">
+      <section className="mx-auto grid max-w-shell items-center gap-12 px-5 pt-14 sm:pt-20 lg:grid-cols-[1.05fr_1fr] lg:gap-16 lg:pt-24">
         <div>
           <p className="eyebrow">{site.tagline}</p>
           <h1 className="mt-5 font-display text-[2.6rem] font-extrabold leading-[1.04] tracking-tight text-ink text-balance sm:text-6xl lg:text-[4.1rem]">
@@ -46,7 +46,7 @@ export default function Home() {
       </section>
 
       {/* Services */}
-      <section aria-labelledby="services-h" className="mx-auto mt-32 max-w-6xl px-5">
+      <section aria-labelledby="services-h" className="mx-auto mt-32 max-w-shell px-5">
         <Reveal>
           <SectionHeading
             id="services-h"
@@ -79,7 +79,7 @@ export default function Home() {
       </section>
 
       {/* Trade-offs */}
-      <section aria-labelledby="tradeoff-h" className="mx-auto mt-32 max-w-6xl px-5">
+      <section aria-labelledby="tradeoff-h" className="mx-auto mt-32 max-w-shell px-5">
         <Reveal>
           <SectionHeading
             id="tradeoff-h"
@@ -94,7 +94,7 @@ export default function Home() {
       </section>
 
       {/* Retrieval */}
-      <section aria-labelledby="rag-h" className="mx-auto mt-32 grid max-w-6xl gap-10 px-5 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+      <section aria-labelledby="rag-h" className="mx-auto mt-32 grid max-w-shell gap-10 px-5 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
         <Reveal className="lg:sticky lg:top-28">
           <SectionHeading
             id="rag-h"
@@ -109,7 +109,7 @@ export default function Home() {
       </section>
 
       {/* Method */}
-      <section aria-labelledby="method-h" className="mx-auto mt-32 max-w-6xl px-5">
+      <section aria-labelledby="method-h" className="mx-auto mt-32 max-w-shell px-5">
         <Reveal>
           <SectionHeading
             id="method-h"
@@ -128,7 +128,7 @@ export default function Home() {
       </section>
 
       {/* Principles */}
-      <section aria-labelledby="principles-h" className="mx-auto mt-32 max-w-6xl px-5">
+      <section aria-labelledby="principles-h" className="mx-auto mt-32 max-w-shell px-5">
         <h2 id="principles-h" className="sr-only">Principles</h2>
         <ul className="grid gap-px overflow-hidden rounded-[var(--radius-glass)] bg-line ring-1 ring-line sm:grid-cols-2 lg:grid-cols-4">
           {principles.map((p, i) => (
