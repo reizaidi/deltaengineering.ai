@@ -1,0 +1,10 @@
+| home | mobile | 91 | 100 | 100 | 100 | 3.2 s | 170 ms | 0 | 306 ms |
+| home | desktop | 100 | 100 | 100 | 100 | 0.7 s | 0 ms | 0 | 340 ms |
+| services | mobile | 94 | 100 | 100 | 100 | 3.0 s | 90 ms | 0 | 385 ms |
+| services | desktop | 100 | 100 | 100 | 100 | 0.6 s | 0 ms | 0 | 316 ms |
+| approach | mobile | 84 | 100 | 100 | 100 | 3.1 s | 390 ms | 0 | 311 ms |
+| approach | desktop | 100 | 100 | 100 | 100 | 0.7 s | 0 ms | 0 | 367 ms |
+| about | mobile | 95 | 100 | 100 | 100 | 3.0 s | 60 ms | 0 | 245 ms |
+| about | desktop | 100 | 100 | 100 | 100 | 0.6 s | 0 ms | 0 | 306 ms |
+| contact | mobile | 93 | 100 | 100 | 100 | 3.1 s | 140 ms | 0 | 254 ms |
+| contact | desktop | 100 | 100 | 100 | 100 | 0.7 s | 0 ms | 0 | 367 ms |

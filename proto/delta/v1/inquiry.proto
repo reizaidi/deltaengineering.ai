@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package delta.v1;
+
+// InquiryService receives project inquiries from the public website.
+// Versioned package (delta.v1): add fields with new numbers, never reuse or
+// renumber; breaking changes go in delta.v2.
+service InquiryService {
+  rpc SubmitInquiry(SubmitInquiryRequest) returns (SubmitInquiryResponse) {
+    option idempotency_level = IDEMPOTENT;
+  }
+}
+
+enum EngagementType {
+  ENGAGEMENT_TYPE_UNSPECIFIED = 0;
+  ENGAGEMENT_TYPE_AI_STRATEGY = 1;
+  ENGAGEMENT_TYPE_AGENTIC_SYSTEMS = 2;
+  ENGAGEMENT_TYPE_RAG_KNOWLEDGE = 3;
+  ENGAGEMENT_TYPE_PLATFORM_ENGINEERING = 4;
+  ENGAGEMENT_TYPE_DATA_ANALYTICS = 5;
+  ENGAGEMENT_TYPE_OTHER = 6;
+}
+
+message SubmitInquiryRequest {
+  string name = 1;
+  string email = 2;
+  string company = 3;
+  EngagementType engagement = 4;
+  string message = 5;
+  // Client-generated UUID; repeated submissions with the same key are deduplicated.
+  string idempotency_key = 6;
+  // Honeypot. Humans never fill this.
+  string website = 7;
+  bool consent = 8;
+}
+
+message SubmitInquiryResponse {
+  string reference = 1;
+}
