@@ -61,7 +61,7 @@ export default function AboutPage() {
             <ul className="mt-6 grid gap-2 sm:grid-cols-2">
               {founder.focus.map((f) => (
                 <li key={f} className="flex gap-2.5 text-sm text-ink-2">
-                  <svg aria-hidden viewBox="0 0 12 11" className="mt-1 size-3 shrink-0"><path d="M6 0 L12 11 L0 11 Z" fill="#c90e17" /></svg>
+                  <svg aria-hidden viewBox="0 0 12 11" className="mt-1 size-3 shrink-0"><path d="M6 0 L12 11 L0 11 Z" fill="#3b2380" /></svg>
                   {f}
                 </li>
               ))}

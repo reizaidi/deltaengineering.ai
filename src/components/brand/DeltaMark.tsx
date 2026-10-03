@@ -30,20 +30,20 @@ export function DeltaMark({ idPrefix = "dm", title, ...props }: Props) {
       {title ? <title>{title}</title> : null}
       <defs>
         <linearGradient id={g("r")} x1="600" y1="150" x2="1300" y2="1100" gradientUnits="userSpaceOnUse">
-          <stop offset="0" stopColor="#c10a12" />
-          <stop offset="0.22" stopColor="#ff0a14" />
-          <stop offset="0.6" stopColor="#b5050d" />
-          <stop offset="1" stopColor="#560000" />
+          <stop offset="0" stopColor="#2c1660" />
+          <stop offset="0.22" stopColor="#43207a" />
+          <stop offset="0.6" stopColor="#2a1559" />
+          <stop offset="1" stopColor="#120a26" />
         </linearGradient>
         <linearGradient id={g("l")} x1="660" y1="300" x2="120" y2="1080" gradientUnits="userSpaceOnUse">
-          <stop offset="0" stopColor="#560000" />
-          <stop offset="0.55" stopColor="#c8060f" />
-          <stop offset="1" stopColor="#ff0a14" />
+          <stop offset="0" stopColor="#120a26" />
+          <stop offset="0.55" stopColor="#2a1559" />
+          <stop offset="1" stopColor="#43207a" />
         </linearGradient>
         <linearGradient id={g("b")} x1="20" y1="1100" x2="840" y2="700" gradientUnits="userSpaceOnUse">
-          <stop offset="0" stopColor="#560000" />
-          <stop offset="0.6" stopColor="#c4050e" />
-          <stop offset="1" stopColor="#ff0a14" />
+          <stop offset="0" stopColor="#120a26" />
+          <stop offset="0.6" stopColor="#271452" />
+          <stop offset="1" stopColor="#43207a" />
         </linearGradient>
       </defs>
       <path d={markFacets.left} fill={`url(#${g("l")})`} />
@@ -53,13 +53,13 @@ export function DeltaMark({ idPrefix = "dm", title, ...props }: Props) {
   );
 }
 
-/** The "A" from the wordmark: a navy chevron with a red arrow counter. */
+/** The "A" from the wordmark: an ink chevron with a violet arrow counter. */
 export function DeltaGlyph(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 1250 1110" aria-hidden {...props}>
       <path d="M627 152 L1213 1057 L977 1057 L627 485 L262 1057 L36 1057 Z" fill="currentColor" />
-      <path d="M627 710 L847 1062 L627 975 Z" fill="#e8101a" />
-      <path d="M627 710 L627 975 L398 1065 Z" fill="#a50b12" />
+      <path d="M627 710 L847 1062 L627 975 Z" fill="#4a2a8a" />
+      <path d="M627 710 L627 975 L398 1065 Z" fill="#24124d" />
     </svg>
   );
 }

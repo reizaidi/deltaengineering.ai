@@ -82,7 +82,7 @@ export function DeltaMethod() {
                   <span
                     className={cn(
                       "absolute inset-0 rounded-full border bg-white transition-[border-color,box-shadow] duration-300",
-                      active ? "border-delta-600 shadow-[0_0_0_6px_rgb(232_16_26/0.1)]" : i < index ? "border-delta-600/50" : "border-line group-hover:border-ink/30",
+                      active ? "border-delta-600 shadow-[0_0_0_6px_rgb(74_42_138/0.1)]" : i < index ? "border-delta-600/50" : "border-line group-hover:border-ink/30",
                     )}
                   />
                   {active && (
@@ -93,7 +93,7 @@ export function DeltaMethod() {
                       transition={{ type: "spring", stiffness: 380, damping: 30 }}
                       aria-hidden
                     >
-                      <path d="M10 1 L19 17 L1 17 Z" fill="#c90e17" />
+                      <path d="M10 1 L19 17 L1 17 Z" fill="#3b2380" />
                     </motion.svg>
                   )}
                   {!active && (
@@ -109,7 +109,7 @@ export function DeltaMethod() {
                         cy="22"
                         r="21"
                         fill="none"
-                        stroke="#c90e17"
+                        stroke="#3b2380"
                         strokeWidth="1.5"
                         initial={{ pathLength: 0 }}
                         animate={{ pathLength: 1 }}

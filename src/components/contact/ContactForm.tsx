@@ -110,7 +110,7 @@ export function ContactForm({ email }: { email: string }) {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              className="mb-6 overflow-hidden rounded-xl border border-delta-600/30 bg-delta-50 p-4 text-sm text-ink"
+              className="mb-6 overflow-hidden rounded-xl border border-danger-700/30 bg-danger-50 p-4 text-sm text-ink"
             >
               <p className="font-semibold">Please fix {errorEntries.length === 1 ? "this field" : `these ${errorEntries.length} fields`}:</p>
               <ul className="mt-2 list-disc space-y-1 pl-5">
@@ -244,7 +244,7 @@ export function ContactForm({ email }: { email: string }) {
           </span>
         </label>
         {errors.consent && (
-          <p id="e-consent" className="mt-2 pl-8 text-sm font-medium text-delta-700">
+          <p id="e-consent" className="mt-2 pl-8 text-sm font-medium text-danger-700">
             {errors.consent}
           </p>
         )}
@@ -257,7 +257,7 @@ export function ContactForm({ email }: { email: string }) {
             initial={{ opacity: 0, y: -4 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
-            className="mt-6 flex flex-col gap-3 rounded-xl border border-delta-600/30 bg-delta-50 p-4 text-sm text-ink sm:flex-row sm:items-center sm:justify-between"
+            className="mt-6 flex flex-col gap-3 rounded-xl border border-danger-700/30 bg-danger-50 p-4 text-sm text-ink sm:flex-row sm:items-center sm:justify-between"
           >
             <p>
               {failure} You can also email{" "}
@@ -295,10 +295,10 @@ export function ContactForm({ email }: { email: string }) {
 
 function inputCls(error?: string) {
   return cn(
-    "block min-h-12 w-full rounded-xl border bg-white/90 px-4 text-[0.95rem] text-ink shadow-[inset_0_1px_2px_rgb(14_23_38/0.06)]",
+    "block min-h-12 w-full rounded-xl border bg-white/90 px-4 text-[0.95rem] text-ink shadow-[inset_0_1px_2px_rgb(16_12_32/0.06)]",
     "transition-[border-color,box-shadow] duration-200 placeholder:text-muted",
-    "focus:border-delta-600 focus:shadow-[0_0_0_4px_rgb(232_16_26/0.12)] focus:outline-none",
-    error ? "border-delta-600" : "border-line hover:border-ink/25",
+    "focus:border-delta-600 focus:shadow-[0_0_0_4px_rgb(74_42_138/0.12)] focus:outline-none",
+    error ? "border-danger-700" : "border-line hover:border-ink/25",
   );
 }
 
@@ -344,7 +344,7 @@ function Field({
             initial={{ opacity: 0, y: -3 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
-            className="mt-2 text-sm font-medium text-delta-700"
+            className="mt-2 text-sm font-medium text-danger-700"
           >
             {error}
           </motion.p>
@@ -360,7 +360,7 @@ function SuccessGlyph() {
       <motion.path
         d="M32 4 L60 52 L4 52 Z"
         fill="none"
-        stroke="#c90e17"
+        stroke="#3b2380"
         strokeWidth="3"
         strokeLinejoin="round"
         initial={{ pathLength: 0 }}
@@ -370,7 +370,7 @@ function SuccessGlyph() {
       <motion.path
         d="M21 34 L29 42 L44 25"
         fill="none"
-        stroke="#0e1726"
+        stroke="#100c20"
         strokeWidth="3.5"
         strokeLinecap="round"
         strokeLinejoin="round"

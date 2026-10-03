@@ -1,7 +1,7 @@
 import type { Service } from "@/content/site";
 
 /**
- * Line glyphs built from the delta's geometry. The red accent path draws in
+ * Line glyphs built from the delta's geometry. The violet accent path draws in
  * on hover/focus of the parent `.group` (CSS only, so it costs no JS).
  */
 const paths: Record<Service["glyph"], { base: string; accent: string }> = {
@@ -35,12 +35,12 @@ export function ServiceGlyph({ glyph }: { glyph: Service["glyph"] }) {
   const p = paths[glyph];
   return (
     <svg viewBox="0 0 48 48" className="size-11" aria-hidden>
-      <path d={p.base} fill="none" stroke="#0e1726" strokeOpacity="0.55" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <path d={p.base} fill="none" stroke="#100c20" strokeOpacity="0.55" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
       <path
         d={p.accent}
         pathLength={1}
         fill="none"
-        stroke="#c90e17"
+        stroke="#3b2380"
         strokeWidth="2.4"
         strokeLinecap="round"
         strokeLinejoin="round"

@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { ComponentProps, ReactNode } from "react";
 import { cn } from "@/lib/cn";
 
-type Variant = "primary" | "glass" | "ghost" | "light";
+type Variant = "primary" | "glass" | "ghost" | "light" | "gold";
 
 const base =
   "group relative inline-flex min-h-11 items-center justify-center gap-2 rounded-full px-5 text-sm font-semibold " +
@@ -11,10 +11,11 @@ const base =
 
 const variants: Record<Variant, string> = {
   primary:
-    "bg-ink text-white shadow-[0_10px_30px_-12px_rgb(14_23_38/0.6)] hover:bg-navy-800 " +
-    "hover:shadow-[0_14px_34px_-12px_rgb(201_14_23/0.55)]",
+    "bg-ink text-white shadow-[0_10px_30px_-12px_rgb(16_12_32/0.6)] hover:bg-navy-800 " +
+    "hover:shadow-[0_14px_34px_-12px_rgb(59_35_128/0.55)]",
   glass: "glass glass-strong text-ink hover:-translate-y-0.5",
   ghost: "text-ink hover:text-delta-700",
+  gold: "bg-gold-500 text-ink hover:bg-[#d3b67e] shadow-[0_10px_30px_-12px_rgb(0_0_0/0.5)]",
   light: "bg-white text-ink hover:bg-delta-50 shadow-[0_10px_30px_-12px_rgb(0_0_0/0.5)]",
 };
 

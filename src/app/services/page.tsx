@@ -38,7 +38,7 @@ export default function ServicesPage() {
                   <ul className="mt-4 space-y-3">
                     {s.outcomes.map((o) => (
                       <li key={o} className="flex gap-3 text-[0.95rem] text-ink-2">
-                        <svg aria-hidden viewBox="0 0 12 11" className="mt-1.5 size-3 shrink-0"><path d="M6 0 L12 11 L0 11 Z" fill="#c90e17" /></svg>
+                        <svg aria-hidden viewBox="0 0 12 11" className="mt-1.5 size-3 shrink-0"><path d="M6 0 L12 11 L0 11 Z" fill="#3b2380" /></svg>
                         {o}
                       </li>
                     ))}

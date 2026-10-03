@@ -128,11 +128,11 @@ export function RetrievalDemo() {
                   {step === 1 ? (
                     <span className="flex w-28 shrink-0 flex-col gap-1">
                       <Bar value={d.kw} tone="ink" label="Keyword" />
-                      <Bar value={d.vec} tone="red" label="Vector" />
+                      <Bar value={d.vec} tone="violet" label="Vector" />
                     </span>
                   ) : (
                     <span className="flex w-28 shrink-0 items-center gap-2">
-                      <Bar value={d.rerank} tone={kept(d) ? "red" : "ink"} label="Relevance" />
+                      <Bar value={d.rerank} tone={kept(d) ? "violet" : "ink"} label="Relevance" />
                       <span className="w-8 text-right font-mono text-xs text-ink-2">{d.rerank.toFixed(2)}</span>
                     </span>
                   )}
@@ -166,11 +166,11 @@ export function RetrievalDemo() {
   );
 }
 
-function Bar({ value, tone, label }: { value: number; tone: "ink" | "red"; label: string }) {
+function Bar({ value, tone, label }: { value: number; tone: "ink" | "violet"; label: string }) {
   return (
     <span className="block h-1.5 flex-1 overflow-hidden rounded-full bg-ink/8" title={`${label} ${value.toFixed(2)}`}>
       <motion.span
-        className={cn("block h-full rounded-full", tone === "red" ? "bg-delta-600" : "bg-ink/70")}
+        className={cn("block h-full rounded-full", tone === "violet" ? "bg-delta-600" : "bg-ink/70")}
         initial={{ width: 0 }}
         animate={{ width: `${value * 100}%` }}
         transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}

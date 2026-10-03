@@ -70,7 +70,7 @@ export function SiteHeader() {
                     {active && (
                       <motion.span
                         layoutId="nav-pill"
-                        className="absolute inset-0 -z-10 rounded-full bg-white shadow-[inset_0_0_0_1px_rgb(14_23_38/0.08),0_4px_14px_-6px_rgb(14_23_38/0.25)]"
+                        className="absolute inset-0 -z-10 rounded-full bg-white shadow-[inset_0_0_0_1px_rgb(16_12_32/0.08),0_4px_14px_-6px_rgb(16_12_32/0.25)]"
                         transition={{ type: "spring", stiffness: 420, damping: 36 }}
                       />
                     )}

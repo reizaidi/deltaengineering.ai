@@ -1,6 +1,6 @@
 # Delta AI Engineering website: research, recommendation and build report
 
-Prepared 2026-10-03 for Rei (REI I. ZAIDI). Every version, price and standard below was checked on 2026-10-03; sources and confidence levels are in [`evidence-register.md`](evidence-register.md). "Top 0.1%" is treated as an aspiration throughout: nothing here claims a ranking, and every score is an internal rubric score with its evidence.
+Prepared 2026-10-03 for Rei (REI I. ZAIDI). Revised the same day for the deep-violet identity (COLOUR-CONCEPT.txt). Every version, price and standard below was checked on 2026-10-03; sources and confidence levels are in [`evidence-register.md`](evidence-register.md). "Top 0.1%" is treated as an aspiration throughout: nothing here claims a ranking, and every score is an internal rubric score with its evidence.
 
 ---
 
@@ -14,7 +14,7 @@ What sets it apart from the six competitor sites reviewed: they all lead with "A
 2. **Grounded-answer pipeline**: hybrid retrieval, reranking and a cited answer, step by step.
 3. **The Delta Method**: a five-stage tour (Discover, Design, Build, Evaluate, Operate) driven by an XState machine, each stage naming the evidence it leaves behind.
 
-Measured results (local lab, details in section 11): Lighthouse Accessibility, Best Practices and SEO are 100 on nearly every page; Performance is 100 on desktop and 84 to 95 on simulated mobile; zero axe WCAG 2.2 AA violations on 7 pages at desktop and mobile sizes; 42 automated tests pass. The one target missed is simulated mobile LCP (3.0 to 3.2 s against a 2.5 s budget).
+Measured results (local lab, details in section 11): Lighthouse Accessibility, Best Practices and SEO are 100 on nearly every page; Performance is 100 on desktop and 87 to 96 on simulated mobile; zero axe WCAG 2.2 AA violations on 7 pages at desktop and mobile sizes; 42 automated tests pass. The one target missed is simulated mobile LCP (2.8 to 3.1 s against a 2.5 s budget).
 
 Three decisions need you before launch: confirm the name risk (section 5), confirm the founder facts (section 2), and set up the inquiry mailbox.
 
@@ -88,7 +88,7 @@ Observed on 2026-10-03 from homepages only; nothing here describes their private
 | Fulcrum | Trade-off advisor | Not screened |
 | Keel | Platform engineering offer | Not screened |
 
-**Identity:** positioning "Production AI, engineered for measurable change"; tagline "Intelligence for a brighter tomorrow" (from your logo); voice: plain, specific, evidence-first, no superlatives. Visual direction: the supplied red ribbon mark and navy wordmark on a cool light canvas, a fine engineering grid, and triangle geometry instead of curves or waves.
+**Identity:** positioning "Production AI, engineered for measurable change"; tagline "Intelligence for a brighter tomorrow" (from your logo); voice: plain, specific, evidence-first, no superlatives. Visual direction (revised 2026-10-03): the deep-violet ribbon mark and ink wordmark on a near-white canvas, primary violet #24124D, ink #100C20, silver #E5E7EB, and muted gold #C5A467 used sparingly; a fine engineering grid and triangle geometry instead of curves or waves. No bright purple, pink, neon or glow.
 
 ## 6. Product scope, user journeys and success metrics
 
@@ -144,17 +144,22 @@ Browser ──static HTML/CSS/JS (CDN)──> pages: / services approach about c
                  └─ Resend email  (or "unavailable" if not configured)
 ```
 
-**Tokens** (`src/app/globals.css`):
+**Tokens** (`src/app/globals.css`, deep-violet identity):
 
-| Token | Value | Contrast on white / canvas |
-|---|---|---|
-| ink | #0E1726 | 17.96 / 16.59 |
-| ink-2 (body) | #2B3648 | 12.18 / 11.25 |
-| muted | #556070 | 6.38 / 5.89 |
-| delta-700 (red text) | #A50B12 | 7.91 / 7.30 |
-| delta-600 (accent) | #C90E17 | 5.90 / 5.45 |
-| delta-500 (fills only) | #E8101A | 4.65 / 4.29, not used for text |
-| canvas | #F4F6F9 | — |
+| Token | Value | Use | Contrast on white / canvas #F6F6F9 |
+|---|---|---|---|
+| ink | #100C20 | Headings, primary buttons | 19.17 / 17.77 |
+| ink-2 | #2A2540 | Body text | 14.61 / 13.55 |
+| muted | #5A5670 | Captions | 7.00 / 6.49 |
+| delta-700 (primary violet) | #24124D | Eyebrows, links, CTA band field | 16.55 / 15.35 |
+| delta-600 | #3B2380 | Focus ring, active states, accents | 12.08 / 11.20 |
+| delta-500 | #4A2A8A | Hero highlight word, fills | 10.56 / 9.79 |
+| silver / line | #E5E7EB | Borders, dividers | decorative |
+| gold-500 | #C5A467 | Separators, progress, data points; CTA button on violet (ink text 8.11:1) | **2.36 / 2.19, fails as text on light, so never used for text there** |
+| gold-700 | #7A5F26 | Reserved for gold text on light if ever needed | 6.01 / 5.57 |
+| danger-700 | #B42318 | Form errors only (functional, not brand) | 6.57 / 6.05 |
+
+On the violet CTA field: white 16.55:1, lavender #D9D2EF body text 11.36:1, gold accent 6.5:1.
 
 Type: Montserrat 500 to 800 for display (closest Google font to the wordmark), Inter for text. Radius 20 px for glass, pill buttons, 44 px minimum targets.
 
@@ -201,27 +206,27 @@ Type: Montserrat 500 to 800 for display (closest Google font to the wordmark), I
 
 | Page | Device | Perf | A11y | Best pr. | SEO | LCP (sim.) | TBT | CLS | LCP (observed) |
 |---|---|---|---|---|---|---|---|---|---|
-| Home | mobile | 91 | 100 | 100 | 100 | 3.2 s | 170 ms | 0 | 306 ms |
-| Home | desktop | 100 | 100 | 100 | 100 | 0.7 s | 0 ms | 0 | 340 ms |
-| Services | mobile | 94 | 100 | 100 | 100 | 3.0 s | 90 ms | 0 | 385 ms |
-| Services | desktop | 100 | 100 | 100 | 100 | 0.6 s | 0 ms | 0 | 316 ms |
-| Approach | mobile | 84 | 100 | 100 | 100 | 3.1 s | 390 ms | 0 | 311 ms |
-| Approach | desktop | 100 | 100 | 100 | 100 | 0.7 s | 0 ms | 0 | 367 ms |
-| About | mobile | 95 | 100 | 100 | 100 | 3.0 s | 60 ms | 0 | 245 ms |
-| About | desktop | 100 | 100 | 100 | 100 | 0.6 s | 0 ms | 0 | 306 ms |
-| Contact | mobile | 93 | 100 | 100 | 100 | 3.1 s | 140 ms | 0 | 254 ms |
-| Contact | desktop | 100 | 100 | 100 | 100 | 0.7 s | 0 ms | 0 | 367 ms |
+| Home | mobile | 90 | 100 | 100 | 100 | 3.1 s | 230 ms | 0 | 284 ms |
+| Home | desktop | 100 | 100 | 100 | 100 | 0.7 s | 0 ms | 0 | 327 ms |
+| Services | mobile | 95 | 100 | 100 | 100 | 2.8 s | 120 ms | 0 | 232 ms |
+| Services | desktop | 100 | 100 | 100 | 100 | 0.6 s | 0 ms | 0 | 287 ms |
+| Approach | mobile | 95 | 100 | 100 | 100 | 2.9 s | 70 ms | 0 | 269 ms |
+| Approach | desktop | 100 | 100 | 100 | 100 | 0.7 s | 0 ms | 0 | 403 ms |
+| About | mobile | 96 | 100 | 100 | 100 | 2.8 s | 60 ms | 0 | 203 ms |
+| About | desktop | 100 | 100 | 100 | 100 | 0.7 s | 0 ms | 0 | 285 ms |
+| Contact | mobile | 87 | 100 | 100 | 100 | 3.1 s | 310 ms | 0 | 268 ms |
+| Contact | desktop | 100 | 100 | 100 | 100 | 0.7 s | 0 ms | 0 | 311 ms |
 
-Notes: Contact "Best practices" scored 96 in an earlier run because of a CSP inspector issue that a browser console check could not reproduce; the final run shows 100. Simulated mobile LCP misses the 2.5 s budget even though the observed LCP element (the hero heading) paints at first paint; Lighthouse's simulation counts the JavaScript requested before it. INP cannot be measured in the lab; TBT is the proxy.
+Notes: these numbers are from the re-run after the violet retheme. Simulated mobile LCP misses the 2.5 s budget even though the observed LCP element (the hero heading) paints at first paint; Lighthouse's simulation counts the JavaScript requested before it. INP cannot be measured in the lab; TBT is the proxy.
 
 **Internal rubric** (your scoring model; not a certification or ranking):
 
 | Criterion | Max | Score | Evidence | Deductions |
 |---|---|---|---|---|
-| Visual identity | 20 | 17 | Brand mark rebuilt as vector, single token set, screenshots | Wordmark "A" glyph is lighter than the letters; the mark is a reconstruction, not your master vector; no photography |
+| Visual identity | 20 | 17 | Deep-violet mark rebuilt as vector, supplied favicon used exactly, single token set, screenshots | Wordmark "A" glyph is lighter than the letters; the mark is a reconstruction, not a master vector (the supplied violet files are raster review assets); no photography |
 | Usability and IA | 20 | 17 | 3-item nav, CTA on every page, e2e nav tests | No case studies; no user testing done |
 | Accessibility | 20 | 18 | 0 axe violations, Lighthouse a11y 100, keyboard and reduced-motion tests | Manual screen-reader testing (NVDA, VoiceOver) **not evaluated** |
-| Responsive and performance | 20 | 15 | Desktop 100, CLS 0 everywhere | Simulated mobile LCP 3.0 to 3.2 s over budget; no field data |
+| Responsive and performance | 20 | 15 | Desktop 100, CLS 0 everywhere | Simulated mobile LCP 2.8 to 3.1 s over budget; no field data |
 | **Core experience** | **80** | **67** | | |
 | Security and privacy | 10 | 8 | Headers test, server validation, honeypot, rate limit, no cookies | `unsafe-inline` in CSP; in-memory limiter; IP header trust depends on host |
 | Reliability and maintainability | 10 | 8 | Typed contracts, 42 tests, CI workflow, single content file | CI has not run on GitHub yet |
@@ -236,10 +241,11 @@ Notes: Contact "Best practices" scored 96 in an earlier run because of a CSP ins
 2. Run a trademark search before more brand spend (section 5).
 3. Link GitHub so the code can be pushed and CI can run.
 4. Set `RESEND_API_KEY`, `INQUIRY_TO_EMAIL`, `INQUIRY_FROM_EMAIL` and confirm the mailbox.
-5. Bring simulated mobile LCP under 2.5 s: try `LazyMotion` with `m` components to shrink the Motion chunk, and defer the explainers below the fold with `next/dynamic`.
-6. Manual screen-reader pass on VoiceOver (iOS, macOS) and NVDA (Windows).
-7. Add 2 to 3 case studies with written client permission.
-8. Have the privacy notice reviewed for the jurisdictions you serve.
+5. Send master vector (SVG/AI) files of the violet logo so the site uses exact geometry.
+6. Bring simulated mobile LCP under 2.5 s: try `LazyMotion` with `m` components to shrink the Motion chunk, and defer the explainers below the fold with `next/dynamic`.
+7. Manual screen-reader pass on VoiceOver (iOS, macOS) and NVDA (Windows).
+8. Add 2 to 3 case studies with written client permission.
+9. Have the privacy notice reviewed for the jurisdictions you serve.
 
 **What was researched:** stack versions and compatibility, standards (WCAG 2.2, CWV, OWASP 2025, security headers), Apple's Liquid Glass guidance and criticism, six competitor homepages, hosting and email pricing, name and domain screening.
 **What was built:** the full site, RPC API, state machines, tests, CI workflow and docs.

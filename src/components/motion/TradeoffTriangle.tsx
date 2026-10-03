@@ -99,11 +99,11 @@ export function TradeoffTriangle() {
         >
           <defs>
             <linearGradient id="tri-fill" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stopColor="#e8101a" stopOpacity="0.1" />
-              <stop offset="1" stopColor="#142235" stopOpacity="0.05" />
+              <stop offset="0" stopColor="#4a2a8a" stopOpacity="0.1" />
+              <stop offset="1" stopColor="#2a2540" stopOpacity="0.05" />
             </linearGradient>
           </defs>
-          <path d={`M${V.q.x} ${V.q.y}L${V.l.x} ${V.l.y}L${V.c.x} ${V.c.y}Z`} fill="url(#tri-fill)" stroke="#0e1726" strokeOpacity="0.18" />
+          <path d={`M${V.q.x} ${V.q.y}L${V.l.x} ${V.l.y}L${V.c.x} ${V.c.y}Z`} fill="url(#tri-fill)" stroke="#100c20" strokeOpacity="0.18" />
           {/* Guides from the handle to each vertex: line weight shows pull. */}
           {(["q", "l", "c"] as const).map((k) => (
             <motion.line
@@ -112,7 +112,7 @@ export function TradeoffTriangle() {
               y1={V[k].y}
               animate={{ x2: p.x, y2: p.y, strokeWidth: 0.5 + w[k] * 5 }}
               transition={reduce || dragging ? { duration: 0 } : { type: "spring", stiffness: 260, damping: 28 }}
-              stroke={k === rec.top ? "#c90e17" : "#0e1726"}
+              stroke={k === rec.top ? "#3b2380" : "#100c20"}
               strokeOpacity={k === rec.top ? 0.8 : 0.25}
               strokeLinecap="round"
             />
@@ -122,8 +122,8 @@ export function TradeoffTriangle() {
             initial={false}
             transition={reduce || dragging ? { duration: 0 } : { type: "spring", stiffness: 260, damping: 28 }}
           >
-            <circle r="18" fill="#fff" stroke="#c90e17" strokeWidth="2" />
-            <path d="M0 -8 L7 5 L-7 5 Z" fill="#c90e17" />
+            <circle r="18" fill="#fff" stroke="#3b2380" strokeWidth="2" />
+            <path d="M0 -8 L7 5 L-7 5 Z" fill="#3b2380" />
           </motion.g>
           <VertexLabel x={V.q.x} y={V.q.y - 4} anchor="middle" label="Quality" value={pct(w.q)} above />
           <VertexLabel x={V.l.x} y={V.l.y + 20} anchor="end" label="Latency" value={pct(w.l)} />

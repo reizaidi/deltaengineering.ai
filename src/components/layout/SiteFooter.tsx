@@ -33,7 +33,7 @@ export function SiteFooter() {
         <div className="mt-12 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[0.7rem] font-medium tracking-[0.3em] text-muted">
           {site.pillars.map((p, i) => (
             <span key={p} className="flex items-center gap-5">
-              {i > 0 && <span aria-hidden className="h-3 w-px bg-delta-600" />}
+              {i > 0 && <span aria-hidden className="h-3 w-px bg-gold-500" />}
               {p.toUpperCase()}
             </span>
           ))}

@@ -153,7 +153,7 @@ export function HeroDelta() {
 
         {/* Lattice */}
         <g mask="url(#hero-mask)">
-          <path d={d} stroke="#0e1726" strokeOpacity="0.09" strokeWidth="1" fill="none" />
+          <path d={d} stroke="#100c20" strokeOpacity="0.09" strokeWidth="1" fill="none" />
           {/* Signals: data hopping toward the decision point */}
           {!reduce &&
             signals.map((path, i) => (
@@ -162,7 +162,7 @@ export function HeroDelta() {
                 r={3.2}
                 cx={0}
                 cy={0}
-                fill={i % 3 === 0 ? "#e8101a" : "#142235"}
+                fill={i % 3 === 0 ? "#c5a467" : "#24124d"}
                 initial={{ opacity: 0, x: path[0].x, y: path[0].y }}
                 animate={{
                   x: path.map((p) => p.x),
@@ -185,7 +185,7 @@ export function HeroDelta() {
           <path
             d={`M${LOOP.top.x} ${LOOP.top.y}L${LOOP.right.x} ${LOOP.right.y}L${LOOP.left.x} ${LOOP.left.y}Z`}
             fill="none"
-            stroke="#0e1726"
+            stroke="#100c20"
             strokeOpacity="0.22"
             strokeWidth="1.2"
             strokeDasharray="3 7"
@@ -193,7 +193,7 @@ export function HeroDelta() {
           {!reduce && (
             <motion.circle
               r={5}
-              fill="#e8101a"
+              fill="#c5a467"
               cx={0}
               cy={0}
               initial={{ x: LOOP.top.x, y: LOOP.top.y }}
@@ -211,20 +211,20 @@ export function HeroDelta() {
           <g transform={`translate(${CX - markW / 2} ${CY - markH / 2 + 8}) scale(${markScale})`}>
             <defs>
               <linearGradient id="hr" x1="600" y1="150" x2="1300" y2="1100" gradientUnits="userSpaceOnUse">
-                <stop offset="0" stopColor="#c10a12" />
-                <stop offset="0.22" stopColor="#ff0a14" />
-                <stop offset="0.6" stopColor="#b5050d" />
-                <stop offset="1" stopColor="#560000" />
+                <stop offset="0" stopColor="#2c1660" />
+                <stop offset="0.22" stopColor="#43207a" />
+                <stop offset="0.6" stopColor="#2a1559" />
+                <stop offset="1" stopColor="#120a26" />
               </linearGradient>
               <linearGradient id="hl" x1="660" y1="300" x2="120" y2="1080" gradientUnits="userSpaceOnUse">
-                <stop offset="0" stopColor="#560000" />
-                <stop offset="0.55" stopColor="#c8060f" />
-                <stop offset="1" stopColor="#ff0a14" />
+                <stop offset="0" stopColor="#120a26" />
+                <stop offset="0.55" stopColor="#2a1559" />
+                <stop offset="1" stopColor="#43207a" />
               </linearGradient>
               <linearGradient id="hb" x1="20" y1="1100" x2="840" y2="700" gradientUnits="userSpaceOnUse">
-                <stop offset="0" stopColor="#560000" />
-                <stop offset="0.6" stopColor="#c4050e" />
-                <stop offset="1" stopColor="#ff0a14" />
+                <stop offset="0" stopColor="#120a26" />
+                <stop offset="0.6" stopColor="#271452" />
+                <stop offset="1" stopColor="#43207a" />
               </linearGradient>
             </defs>
             <motion.path d={markFacets.left} fill="url(#hl)" {...facetIn(0, -260, 120)} />

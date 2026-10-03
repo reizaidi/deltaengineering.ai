@@ -19,7 +19,7 @@ export default function Home() {
         <div>
           <p className="eyebrow">{site.tagline}</p>
           <h1 className="mt-5 font-display text-[2.6rem] font-extrabold leading-[1.04] tracking-tight text-ink text-balance sm:text-6xl lg:text-[4.1rem]">
-            Production AI, engineered for <span className="text-delta-600">measurable</span> change.
+            Production AI, engineered for <span className="text-delta-500">measurable</span> change.
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink-2">
             We design, build and operate agentic systems, retrieval platforms and the cloud engineering beneath them.
@@ -36,7 +36,7 @@ export default function Home() {
           <ul className="mt-12 flex flex-wrap items-center gap-x-4 gap-y-2 text-[0.7rem] font-semibold tracking-[0.3em] text-muted" aria-label="Our pillars">
             {site.pillars.map((p, i) => (
               <li key={p} className="flex items-center gap-4">
-                {i > 0 && <span aria-hidden className="h-3 w-px bg-delta-600" />}
+                {i > 0 && <span aria-hidden className="h-3 w-px bg-gold-500" />}
                 {p.toUpperCase()}
               </li>
             ))}
