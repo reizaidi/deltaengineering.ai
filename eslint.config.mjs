@@ -15,6 +15,7 @@ const eslintConfig = defineConfig([
     "src/gen/**",
     "playwright-report/**",
     "test-results/**",
+    ".preview/**",
   ]),
 ]);
 

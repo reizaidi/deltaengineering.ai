@@ -1,6 +1,11 @@
 import { expect, test } from "@playwright/test";
 
+// STATIC_SITE=1 runs the suite against the static export (out/), where there is
+// no RPC server and headers come from the host's _headers file instead.
+const STATIC = process.env.STATIC_SITE === "1";
+
 test("security headers are set", async ({ request }) => {
+  test.skip(STATIC, "static hosts apply out/_headers");
   const res = await request.get("/");
   const h = res.headers();
   expect(h["content-security-policy"]).toContain("frame-ancestors 'none'");
@@ -38,6 +43,7 @@ test("trade-off presets update the recommendation", async ({ page }) => {
 });
 
 test("contact form: validation, then successful Connect RPC submission", async ({ page }) => {
+  test.skip(STATIC, "no RPC server on the static build");
   await page.goto("/contact");
   await page.getByRole("button", { name: "Send inquiry" }).click();
   const summary = page.getByRole("alert").filter({ hasText: "Please fix" });
@@ -55,6 +61,7 @@ test("contact form: validation, then successful Connect RPC submission", async (
 });
 
 test("RPC rejects invalid payloads server-side", async ({ request }) => {
+  test.skip(STATIC, "no RPC server on the static build");
   const res = await request.post("/api/delta.v1.InquiryService/SubmitInquiry", {
     headers: { "Content-Type": "application/json", "x-real-ip": `203.0.113.${Math.floor(Math.random() * 250)}` },
     data: { name: "x", email: "nope", message: "short", engagement: "ENGAGEMENT_TYPE_OTHER", consent: true },
@@ -65,6 +72,26 @@ test("RPC rejects invalid payloads server-side", async ({ request }) => {
 });
 
 test("unknown RPC path returns 404", async ({ request }) => {
+  test.skip(STATIC, "no RPC server on the static build");
   const res = await request.post("/api/delta.v1.Nope/Nope", { data: {} });
   expect(res.status()).toBe(404);
+});
+
+test("static build: contact form hands a validated inquiry to email", async ({ page }) => {
+  test.skip(!STATIC, "static build only");
+  const errors: string[] = [];
+  page.on("pageerror", (e) => errors.push(e.message));
+  await page.goto("/contact");
+  await page.getByRole("button", { name: "Send inquiry" }).click();
+  await expect(page.getByRole("alert").filter({ hasText: "Please fix" })).toContainText("Please fix");
+
+  await page.getByLabel(/^Name/).fill("Test Person");
+  await page.getByLabel(/Work email/).fill("test@example.com");
+  await page.getByLabel(/What do you need help with/).selectOption({ label: "Agentic systems" });
+  await page.getByLabel(/Project details/).fill("We want an agent that triages support tickets with human approval.");
+  await page.getByLabel(/You may use these details/).check();
+  await page.getByRole("button", { name: "Send inquiry" }).click();
+  await expect(page.getByRole("status").filter({ hasText: "Your email is ready to send" })).toBeVisible();
+  await expect(page.getByText(/DAI-[0-9A-F]{8}/)).toBeVisible();
+  expect(errors).toEqual([]);
 });

@@ -16,6 +16,30 @@ const newKey = () =>
     ? crypto.randomUUID()
     : `${Date.now()}-${Math.random().toString(36).slice(2)}`;
 
+// Static hosting (no server): hand the validated inquiry to the visitor's
+// email client instead of the RPC endpoint.
+const STATIC_SITE = process.env.NEXT_PUBLIC_STATIC_SITE === "1";
+
+function emailHandoff(to: string) {
+  return async ({ input }: { input: SubmitInput }) => {
+    if (input.honeypot) return { reference: "received" };
+    const v = input.values;
+    const reference = `DAI-${input.idempotencyKey.replace(/[^a-z0-9]/gi, "").slice(0, 8).toUpperCase()}`;
+    const body = [
+      `Name: ${v.name}`,
+      `Email: ${v.email}`,
+      ...(v.company ? [`Company: ${v.company}`] : []),
+      `Engagement: ${engagementOptions.find((o) => o.value === v.engagement)?.label ?? v.engagement}`,
+      `Reference: ${reference}`,
+      "",
+      v.message,
+    ].join("\n");
+    const subject = `Inquiry ${reference}: ${v.name}${v.company ? `, ${v.company}` : ""}`;
+    window.location.href = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    return { reference };
+  };
+}
+
 async function submit({ input }: { input: SubmitInput }) {
   try {
     const res = await inquiryClient.submitInquiry(
@@ -48,7 +72,9 @@ const fieldLabels: Record<keyof InquiryInput, string> = {
 };
 
 export function ContactForm({ email }: { email: string }) {
-  const machine = useMemo(() => inquiryMachine.provide({ actors: { submit: fromPromise(submit) } }), []);
+  const machine = useMemo(() => inquiryMachine.provide({ actors: { submit: fromPromise(STATIC_SITE ? emailHandoff(email) : submit) } }),
+    [email],
+  );
   const [state, send] = useMachine(machine, { input: { newKey } });
   const { values, errors, reference, failure } = state.context;
   const summaryRef = useRef<HTMLDivElement>(null);
@@ -84,7 +110,20 @@ export function ContactForm({ email }: { email: string }) {
         className="glass glass-strong p-8 outline-none sm:p-10"
       >
         <SuccessGlyph />
-        <h2 className="mt-6 font-display text-2xl font-bold text-ink">Thank you. Your inquiry is in.</h2>
+        <h2 className="mt-6 font-display text-2xl font-bold text-ink">
+          {STATIC_SITE ? "Your email is ready to send." : "Thank you. Your inquiry is in."}
+        </h2>
+        {STATIC_SITE ? (
+          <p className="mt-3 text-ink-2">
+            Your email app should now show your inquiry, reference{" "}
+            <strong className="font-semibold text-ink">{reference}</strong>. Press send to reach us. If nothing opened,
+            write to{" "}
+            <a className="font-medium text-delta-700 underline underline-offset-4" href={`mailto:${email}`}>
+              {email}
+            </a>{" "}
+            directly.
+          </p>
+        ) : (
         <p className="mt-3 text-ink-2">
           Your reference is <strong className="font-semibold text-ink">{reference}</strong>. We reply from{" "}
           <a className="font-medium text-delta-700 underline underline-offset-4" href={`mailto:${email}`}>
@@ -92,6 +131,7 @@ export function ContactForm({ email }: { email: string }) {
           </a>
           ; quote the reference if you write to us in the meantime.
         </p>
+        )}
         <Button variant="glass" className="mt-8" onClick={() => send({ type: "RESET" })}>
           Send another inquiry
         </Button>
